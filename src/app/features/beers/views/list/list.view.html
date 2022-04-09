@@ -1,0 +1,21 @@
+<section>
+  <article>{{ beers | json }}</article>
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Image</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let beer of beers | async; let i = index; trackBy: getBeerById"
+      >
+        <td>{{ beer.name }}</td>
+        <td>{{ beer.description}}</td>
+        <td><img [src]="beer.image_url" /></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
