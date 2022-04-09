@@ -1,1 +1,7 @@
 3
+<section>
+  <ng-container *ngIf="beersFacade.getBeerDetails$ | async as beerDetails;">
+   {{ beerDetails.name }}
+   <img [src]="beerDetails.image_url" />
+ </ng-container>
+</section>
