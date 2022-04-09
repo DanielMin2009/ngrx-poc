@@ -1,21 +1,25 @@
 <section>
-  <article>{{ beers | json }}</article>
-  <table>
-    <thead>
-      <tr>
-        <td>Name</td>
-        <td>Description</td>
-        <td>Image</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        *ngFor="let beer of beers | async; let i = index; trackBy: getBeerById"
+  <ng-container
+  *ngFor="let beer of beers | async; let i = index; trackBy: getBeerById"
       >
-        <td>{{ beer.name }}</td>
-        <td>{{ beer.description}}</td>
-        <td><img [src]="beer.image_url" /></td>
-      </tr>
-    </tbody>
-  </table>
+        <mat-card>
+          <mat-card-header>
+            <span>Name</span>
+            <span>{{ beer.name }}</span>
+          </mat-card-header>
+          <mat-card-content>
+            <img [src]="beer.image_url" />
+            <span>{{ beer.description }}</span>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button color="accent">
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >favorite</mat-icon
+              >
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
 </section>
+
+
