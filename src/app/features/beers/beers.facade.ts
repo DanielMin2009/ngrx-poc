@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 // Definitions
 import { Beer } from '../beers/models/beer';
+import { BeerDetails } from './models/beerDetails';
 
 // Store
 import * as fromActions from './store/beer.actions';
@@ -20,9 +21,16 @@ export class BeersFacade {
     fromSelectors.selectIsLoading
   );
 
+  getBeerDetails$: Observable<BeerDetails | null | undefined> =
+    this.store.select(fromSelectors.selectBeerDetails);
+
   constructor(private store: Store) {}
 
   getBeers(): void {
     this.store.dispatch(fromActions.getBeers());
+  }
+
+  getBeerById(beerId: number): void {
+    this.store.dispatch(fromActions.getBeerById({ beerId }));
   }
 }
