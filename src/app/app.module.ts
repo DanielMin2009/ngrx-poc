@@ -4,14 +4,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-// Component
-import { AppComponent } from './app.component';
 
 // NgRX
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { environment } from '../environments/environment';
+
+// Component
+import { AppComponent } from './app.component';
+
+// Shell
+import { ShellModule } from './shell/shell.module';
 
 // Material
 import { MatButtonModule } from '@angular/material/button';
@@ -44,6 +48,8 @@ import { MatCardModule } from '@angular/material/card';
       }
     ),
     EffectsModule.forRoot([]),
+    // Shell
+    ShellModule,
     // Material
     MatCardModule,
     MatButtonModule,
