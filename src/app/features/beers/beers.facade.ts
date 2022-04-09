@@ -24,10 +24,14 @@ export class BeersFacade {
   getBeerDetails$: Observable<BeerDetails | null | undefined> =
     this.store.select(fromSelectors.selectBeerDetails);
 
+  error$: Observable<string | null> = this.store.select(
+    fromSelectors.selectGetBeersFailure
+  );
+
   constructor(private store: Store) {}
 
-  getBeers(): void {
-    this.store.dispatch(fromActions.getBeers());
+  getBeers(filter: { page: number; limit: number }): void {
+    this.store.dispatch(fromActions.getBeers({ filter }));
   }
 
   getBeerById(beerId: number): void {

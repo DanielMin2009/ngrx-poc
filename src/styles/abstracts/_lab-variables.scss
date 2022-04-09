@@ -116,6 +116,7 @@ $lab-color-warn-attention: rgba(244, 162, 97, 1); // #F4A261
 $lab-color-background: rgba(252, 248, 237, 1); // #fcf8ed
 $lab-color-background-mercury: rgba(248, 237, 210, 1); // #f8edd2
 $lab-color-background-rgba: rgba(252, 248, 237, 0.5); // #EEEDED - opacity 0.5
+$lab-color-background-accent: rgba(233, 196, 106, 1); // #E9C46A
 // Text
 $lab-color-text-primary: rgba(13, 32, 41, 1); // #171b1c
 $lab-color-text-secondary: rgba(87, 91, 94, 1); // #575b5e
@@ -173,6 +174,7 @@ $lab-opacity-l: 0.66;
   --lab-color-background: #{$lab-color-background};
   --lab-color-background-mercury: #{$lab-color-background-mercury};
   --lab-color-background-rgba: #{$lab-color-background-rgba};
+  --lab-color-background-accent: #{$lab-color-background-accent};
   // Text
   --lab-color-text-primary: #{$lab-color-text-primary};
   --lab-color-text-secondary: #{$lab-color-text-secondary};

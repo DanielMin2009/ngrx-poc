@@ -14,7 +14,10 @@ enum Actions {
   GET_BEER_DETAILS_FAILURE = '[BEER] Get Beer Details Failure',
 }
 
-export const getBeers = createAction(Actions.GET_BEERS);
+export const getBeers = createAction(
+  Actions.GET_BEERS,
+  props<{ filter: { page: number; limit: number } }>()
+);
 
 export const getBeersSucess = createAction(
   Actions.GET_BEERS_SUCESS,

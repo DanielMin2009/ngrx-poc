@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 // Shared
-import { LayoutTypeClass } from 'src/app/shared/utils/utils';
+import { LayoutTypeClass } from 'src/app/shared/definitions/styles';
 
 // Feature Beers
 import { BeersFacade } from '../../beers.facade';

@@ -22,3 +22,8 @@ export const selectBeerDetailsIsLoading = createSelector(
   selectBeerFeature,
   (state) => !state.beerDetails
 );
+
+export const selectGetBeersFailure = createSelector(
+  selectBeerFeature,
+  (state) => state.error
+);

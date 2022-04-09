@@ -6,15 +6,17 @@ import * as fromActions from './beer.actions';
 
 export const featureKey = 'beers';
 export interface BeerState {
-  beers: Beer[] | null;
+  beers: Beer[];
   beerDetails?: BeerDetails | null;
   isLoading: boolean;
+  error: any | null;
 }
 
 export const initialState: BeerState = {
-  beers: null,
+  beers: [],
   beerDetails: null,
   isLoading: false,
+  error: null,
 };
 
 export const BeersReducer = createReducer(
@@ -25,9 +27,9 @@ export const BeersReducer = createReducer(
       isLoading: true,
     };
   }),
-  on(fromActions.getBeersSucess, (state, { beers }) => ({
+  on(fromActions.getBeersSucess, (state, action) => ({
     ...state,
-    beers,
+    beers: [...state.beers, ...action.beers],
     isLoading: false,
   })),
   on(fromActions.getBeersFailure, (state, { error }) => ({

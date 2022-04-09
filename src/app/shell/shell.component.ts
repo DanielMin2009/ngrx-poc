@@ -12,7 +12,7 @@ import { RouterOutlet } from '@angular/router';
 import { fromEvent, Observer } from 'rxjs';
 
 // Shared
-import { ROUTE_SLIDE_STATE_TRIGGER } from '../shared/animations/route-animations';
+import { ROUTE_SLIDE_STATE_TRIGGER } from '../shared/definitions/route-animations';
 
 @Component({
   selector: 'lab-shell',

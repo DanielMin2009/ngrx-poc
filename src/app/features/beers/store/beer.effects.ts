@@ -15,8 +15,8 @@ export class BeerEffects {
   loadBeers$ = createEffect(() => {
     return this.action$.pipe(
       ofType(fromActions.getBeers),
-      exhaustMap(() =>
-        this.beerService.getBeers().pipe(
+      exhaustMap((action) =>
+        this.beerService.getBeers(action.filter).pipe(
           map((beers) => {
             return fromActions.getBeersSucess({ beers });
           }),

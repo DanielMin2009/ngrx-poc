@@ -1,8 +1,19 @@
 <ng-container
   *ngIf="(beersFacade.isLoading$ | async); then loading; else viewData"
 ></ng-container>
+
+<!-- <aside role="alert" *ngIf="(beersFacade.error$|async)">
+  <mat-icon>zoom_in</mat-icon>
+  <span>{{beersFacade.error$ | async }}</span>
+</aside> -->
+
 <ng-template #viewData>
-  <section>
+  <section
+    infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScrollEnd()"
+  >
     <ng-container
       *ngFor="let beer of beersFacade.getBeers$ | async; let i = index; trackBy: getBeerById"
     >
@@ -26,11 +37,7 @@
 
 <ng-template #loading>
   <section>
-    <mat-spinner
-      color="accent"
-      diameter="60"
-      strokeWidth="3"
-      value="100">
+    <mat-spinner color="accent" diameter="60" strokeWidth="3" value="100">
     </mat-spinner>
   </section>
 </ng-template>

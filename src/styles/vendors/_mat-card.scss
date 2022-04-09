@@ -12,11 +12,16 @@
 
   &.lab-02-b-main-layout__vertically-centered {
     .mat-card {
-      width: calc(75rem / 4 - 3rem);
+      &:hover{
+        cursor: pointer;
+        transform: translateY(-0.625rem);
+        transition: 0.2s ease-in-out;
+      }
     }
     .mat-card-content {
       img {
         max-width: var(--lab-spacing-xxxx-large);
+        object-fit: cover;
       }
     }
   }
