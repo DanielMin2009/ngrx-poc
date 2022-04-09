@@ -1,25 +1,37 @@
-<section>
-  <ng-container
-    *ngFor="let beer of beersFacade.getBeers$ | async; let i = index; trackBy: getBeerById"
-  >
-    <mat-card (click)="goToDetails(beer.id)">
-      <mat-card-header>
-        <span>Name</span>
-        <span>{{ beer.name }}</span>
-      </mat-card-header>
-      <mat-card-content>
-        <img [src]="beer.image_url" />
-        <span>{{ beer.description }}</span>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-icon-button color="accent">
-          <mat-icon
-            >favorite</mat-icon
-          >
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </ng-container>
-</section>
+<ng-container
+  *ngIf="(beersFacade.isLoading$ | async); then loading; else viewData"
+></ng-container>
+<ng-template #viewData>
+  <section>
+    <ng-container
+      *ngFor="let beer of beersFacade.getBeers$ | async; let i = index; trackBy: getBeerById"
+    >
+      <mat-card (click)="goToDetails(beer.id)">
+        <mat-card-header>
+          <span>Name</span>
+          <span>{{ beer.name }}</span>
+        </mat-card-header>
+        <mat-card-content>
+          <img [src]="beer.image_url" />
+          <span>{{ beer.description }}</span>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon-button color="accent">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+  </section>
+</ng-template>
 
-
+<ng-template #loading>
+  <section>
+    <mat-spinner
+      color="accent"
+      diameter="60"
+      strokeWidth="3"
+      value="100">
+    </mat-spinner>
+  </section>
+</ng-template>
