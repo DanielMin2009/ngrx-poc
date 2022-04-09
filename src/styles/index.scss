@@ -1,0 +1,20 @@
+@use 'abstracts' as *;
+@use 'base' as *;
+@use 'components' as *;
+@use 'layouts' as *;
+@use 'shell' as *;
+@use 'vendors' as *;
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Palette
+$lab-palette-accent: mat.define-palette($lab-color-theme-accent);
+$lab-palette-primary: mat.define-palette($lab-color-theme-primary);
+$lab-palette-warn: mat.define-palette($lab-color-theme-warn);
+// Theme
+$lab-theme: mat.define-light-theme(
+    (color: (accent: $lab-palette-accent, primary: $lab-palette-primary, warn: $lab-palette-warn))
+);
+@include mat.all-component-themes($lab-theme);

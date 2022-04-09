@@ -1,0 +1,34 @@
+// Layout | Common
+.lab-layout {
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+  & > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--lab-spacing-large);
+    min-height: 100%;
+    overflow-x: hidden;
+    margin: auto;
+  }
+}
+
+// Media queries
+// Max 120rem - 1920px
+@media screen and (max-width: 120rem) {
+  .lab-layout {
+    & > section {
+      max-width: var(--lab-width-container-s);
+    }
+  }
+}
+
+// Min 120rem - 1920px
+@media screen and (min-width: 120rem) {
+  .lab-layout {
+    & > section {
+      max-width: var(--lab-width-container);
+    }
+  }
+}
