@@ -17,6 +17,9 @@ import { AppComponent } from './app.component';
 // Shell
 import { ShellModule } from './shell/shell.module';
 
+// Features
+import { BeersModule } from './features/beers/beers.module';
+
 // Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -50,6 +53,8 @@ import { MatCardModule } from '@angular/material/card';
     EffectsModule.forRoot([]),
     // Shell
     ShellModule,
+    // Features
+    BeersModule,
     // Material
     MatCardModule,
     MatButtonModule,
