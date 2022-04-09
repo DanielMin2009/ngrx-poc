@@ -12,3 +12,13 @@ export const selectIsLoading = createSelector(
   selectBeerFeature,
   (state) => !state.beers
 );
+
+export const selectBeerDetails = createSelector(
+  selectBeerFeature,
+  (state) => state.beerDetails
+);
+
+export const selectBeerDetailsIsLoading = createSelector(
+  selectBeerFeature,
+  (state) => !state.beerDetails
+);

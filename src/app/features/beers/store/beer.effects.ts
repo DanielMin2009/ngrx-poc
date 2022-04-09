@@ -27,5 +27,24 @@ export class BeerEffects {
       )
     );
   });
+
+  loadBeerById$ = createEffect(() => {
+    return this.action$.pipe(
+      ofType(fromActions.getBeerById),
+      exhaustMap((action) =>
+        this.beerService.getBeerById(action.beerId).pipe(
+          map((beerDetails) => {
+            return fromActions.getBeerDetailsSucess({
+              beerDetails: beerDetails[0],
+            });
+          }),
+          catchError((error) => {
+            return of(fromActions.getBeerDetailsFailure({ error }));
+          })
+        )
+      )
+    );
+  });
+
   constructor(private action$: Actions, private beerService: BeerService) {}
 }
