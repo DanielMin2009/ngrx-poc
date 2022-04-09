@@ -1,7 +1,7 @@
-<div #shell class="lab-shell">
-    <lab-header-component></lab-header-component>
-    <main class="lab-shell__view-wrap" [@routeSlideTopState]="goToView(outlet)">
-        <router-outlet #outletRef #outlet="outlet"></router-outlet>
-    </main>
-    <lab-sidenav-component></lab-sidenav-component>
-</div>
+<section #shell>
+  <lab-shell-header></lab-shell-header>
+  <main class="lab-shell-wrapper__main-content" [@routeSlideState]="goToView(outlet)">
+      <router-outlet #outletRef #outlet="outlet"></router-outlet>
+  </main>
+  <lab-sidenav-component></lab-sidenav-component>
+</section>

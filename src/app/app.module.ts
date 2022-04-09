@@ -55,9 +55,6 @@ import { MatCardModule } from '@angular/material/card';
     ShellModule,
     // Features
     BeersModule,
-    // Material
-    MatCardModule,
-    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

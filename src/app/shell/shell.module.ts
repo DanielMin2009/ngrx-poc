@@ -6,33 +6,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 // Components
+import { FooterShellComponent } from './footer/footer.component';
+import { HeaderShellComponent } from './header/header.component';
 import { ShellComponent } from './shell.component';
 
-// Modules
-import { FooterModule } from './footer/footer.module';
-import { HeaderModule } from './header/header.module';
-import { NavbarModule } from './navbar/navbar.module';
-import { SidenavModule } from './sidenav/sidenav.module';
-
+// Shared
+import { LogoModule } from '../shared/components/logo/logo.module';
+import { SidenavModule } from '../shared/components/sidenav/sidenav.module';
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    // Modules
-    FooterModule,
-    HeaderModule,
-    NavbarModule,
+    // Shared
+    LogoModule,
     SidenavModule,
   ],
   providers: [],
-  declarations: [ShellComponent],
-  exports: [
-    ShellComponent,
-    FooterModule,
-    HeaderModule,
-    NavbarModule,
-    SidenavModule,
-  ],
+  declarations: [ShellComponent, FooterShellComponent, HeaderShellComponent],
+  exports: [ShellComponent],
 })
 export class ShellModule {}

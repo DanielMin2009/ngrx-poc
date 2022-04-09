@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'lab-header-component',
+  selector: 'lab-shell-header',
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
-  @HostBinding('class') className = 'lab-component lab-header-component';
+export class HeaderShellComponent {
+  @HostBinding('class') className = 'lab-shell__header';
 }
