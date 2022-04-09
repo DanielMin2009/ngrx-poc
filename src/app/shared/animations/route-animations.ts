@@ -22,7 +22,7 @@ const minorScale = 'scale(0.8)';
 const originScale = 'scale(1)';
 const higherScale = 'scale(1.25)';
 
-export const ROUTE_SLIDE_TOP_STATE_TRIGGER = trigger('routeSlideTopState', [
+export const ROUTE_SLIDE_STATE_TRIGGER = trigger('routeSlideState', [
   transition(':increment', [
     style({
       position: 'relative',
