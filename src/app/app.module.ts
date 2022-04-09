@@ -10,6 +10,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { environment } from '../environments/environment';
+import { BeerEffects } from './features/beers/store/beer.effects';
+import { BeersReducer } from './features/beers/store/beer.reducer';
 
 // Component
 import { AppComponent } from './app.component';
@@ -19,11 +21,6 @@ import { ShellModule } from './shell/shell.module';
 
 // Features
 import { BeersModule } from './features/beers/beers.module';
-
-// Material
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -38,7 +35,7 @@ import { MatCardModule } from '@angular/material/card';
       logOnly: environment.production,
     }),
     StoreModule.forRoot(
-      {},
+      { beers: BeersReducer },
       {
         runtimeChecks: {
           strictStateImmutability: true,
@@ -50,7 +47,7 @@ import { MatCardModule } from '@angular/material/card';
         },
       }
     ),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([BeerEffects]),
     // Shell
     ShellModule,
     // Features

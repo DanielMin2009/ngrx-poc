@@ -21,7 +21,6 @@ const materialModules = [
   imports: [
     CommonModule,
     // Material
-    // Material
     ...materialModules,
   ],
   exports: [],
