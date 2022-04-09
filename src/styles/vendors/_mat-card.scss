@@ -1,17 +1,23 @@
-
-.lab-shell{
-  .example-card {
-    max-width: 25rem;
+.lab-layout {
+  .mat-card {
+    background-color: var(--lab-color-background-rgba);
+    border-radius: var(--lab-border-radius-large);
+    font: {
+      family: 'MarkPro';
+    }
+    &:not([class*="mat-elevation-z"]) {
+      box-shadow: unset;
+    }
   }
 
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-
-  .mat-card-content {
-    img {
-      width: 100%;
+  &.lab-02-b-main-layout__vertically-centered {
+    .mat-card {
+      width: calc(75rem / 4 - 3rem);
+    }
+    .mat-card-content {
+      img {
+        max-width: var(--lab-spacing-xxxx-large);
+      }
     }
   }
 }
