@@ -24,4 +24,8 @@ export class ListView {
   getBeerById(index: number, beer: Beer): number {
     return beer.id;
   }
+
+  goToDetails(beerId: number): void {
+    this.router.navigateByUrl(`beers/${beerId}`);
+  }
 }

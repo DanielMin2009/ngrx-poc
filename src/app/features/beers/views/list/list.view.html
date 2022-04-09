@@ -2,7 +2,7 @@
   <ng-container
     *ngFor="let beer of beersFacade.getBeers$ | async; let i = index; trackBy: getBeerById"
   >
-    <mat-card>
+    <mat-card (click)="goToDetails(beer.id)">
       <mat-card-header>
         <span>Name</span>
         <span>{{ beer.name }}</span>
