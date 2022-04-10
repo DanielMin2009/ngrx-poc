@@ -31,7 +31,7 @@ $lab-card-perspective: 200rem;
 }
 
 @mixin transitionDown {
-  transform: translateY(2rem);
+  transform: translateY(0.3725rem);
   transition: 0.2s ease-in-out;
 }
 
