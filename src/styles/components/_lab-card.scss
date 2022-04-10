@@ -25,6 +25,16 @@ $lab-card-perspective: 200rem;
     url("../../assets/images/wallpapers/beer.jpg");
 }
 
+@mixin transitionUp {
+  transform: translateY(-0.625rem);
+  transition: 0.2s ease-in-out;
+}
+
+@mixin transitionDown {
+  transform: translateY(2rem);
+  transition: 0.2s ease-in-out;
+}
+
 .lab-card {
   flex: initial;
   position: relative;
@@ -138,6 +148,15 @@ $lab-card-perspective: 200rem;
 .lab-card__side--back {
   background-color: var(--lab-color-background);
   transform: rotateY(180deg);
+  transition: 0.2s ease-in-out;
+  &:hover {
+    figure {
+      @include transitionUp;
+    }
+    footer {
+      @include transitionDown;
+    }
+  }
 
   figure {
     display: flex;
@@ -156,6 +175,7 @@ $lab-card-perspective: 200rem;
     width: 100%;
     background-color: var(--lab-color-background-warn-ok-rgba);
     clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+
     h3 {
       padding: var(--lab-spacing-xx-large);
       text-align: center;
@@ -172,5 +192,3 @@ $lab-card-perspective: 200rem;
     }
   }
 }
-
-
