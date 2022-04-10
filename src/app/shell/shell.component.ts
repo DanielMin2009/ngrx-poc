@@ -10,14 +10,9 @@ import { RouterOutlet } from '@angular/router';
 
 // RxJS
 import { fromEvent, Observer } from 'rxjs';
-
-// Shared
-import { ROUTE_SLIDE_STATE_TRIGGER } from '../shared/definitions/route-animations';
-
 @Component({
   selector: 'lab-shell',
   templateUrl: './shell.component.html',
-  animations: [ROUTE_SLIDE_STATE_TRIGGER],
 })
 export class ShellComponent implements OnInit {
   @HostBinding('class') className = 'lab-shell lab-shell__wrapper';
