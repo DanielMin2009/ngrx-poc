@@ -39,7 +39,7 @@ export const ROUTE_SLIDE_STATE_TRIGGER = trigger('routeSlideState', [
             easeInAnim,
             style({
               opacity: 1,
-              transform: 'translateX(-100%)',
+              transform: 'translateY(-100%)',
             })
           ),
         ],
@@ -50,14 +50,14 @@ export const ROUTE_SLIDE_STATE_TRIGGER = trigger('routeSlideState', [
         ':enter',
         [
           style({
-            transform: 'translateX(100%)',
+            transform: 'translateY(100%)',
             opacity: 1,
           }),
           animate(
             easeOutAnim,
             style({
               opacity: 1,
-              transform: 'translateX(0)',
+              transform: 'translateY(0)',
             })
           ),
         ],
@@ -82,7 +82,7 @@ export const ROUTE_SLIDE_STATE_TRIGGER = trigger('routeSlideState', [
             easeInAnim,
             style({
               opacity: 1,
-              transform: 'translateX(100%)',
+              transform: 'translateY(100%)',
             })
           ),
         ],
@@ -93,14 +93,14 @@ export const ROUTE_SLIDE_STATE_TRIGGER = trigger('routeSlideState', [
         ':enter',
         [
           style({
-            transform: 'translateX(-100%)',
+            transform: 'translateY(-100%)',
             opacity: 1,
           }),
           animate(
             easeOutAnim,
             style({
               opacity: 1,
-              transform: 'translateX(0)',
+              transform: 'translateY(0)',
             })
           ),
         ],

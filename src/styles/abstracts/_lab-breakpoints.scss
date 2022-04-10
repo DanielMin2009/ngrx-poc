@@ -1,0 +1,39 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 36rem) {
+      @content;
+    } // < 576px
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: 48rem) {
+      @content;
+    } // < 768px
+  }
+  @if $breakpoint == phablet {
+    @media (max-width: 64rem) {
+      @content;
+    } // < 1024px
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 120rem) {
+      @content;
+    } // > 1920px
+  }
+}
+
+html {
+  // 10px as var(--lab-spacing-large).
+  font-size: 66.66%;
+
+  @include respond(phablet) {
+    // width < 1200?
+    font-size: 70%; // 1rem = 9px, 9/16 = 56.25
+  }
+  @include respond(tablet) {
+    // width < 900?
+    font-size: 80%; // 1rem = 8px, 8/16 = 50
+  }
+  @include respond(desktop) {
+    font-size: 83%; // 1rem = 12px, 12/16 = 75
+  }
+}

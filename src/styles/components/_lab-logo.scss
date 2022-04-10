@@ -1,4 +1,7 @@
 // Logo
 .lab-logo {
-  width: 12rem;
+  width: 6.6rem;
+  &:hover {
+    cursor: pointer;
+  }
 }

@@ -1,9 +1,33 @@
 .lab-02-b-main-layout__vertically-centered {
   & > section {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(25%,1fr));
-    grid-gap: var(--lab-spacing-large) var(--lab-spacing-x-large);
-    padding: 0 var(--biss-spacing-large);
-    justify-content: center;
+    grid-gap: var(--lab-spacing-xxx-large);
+  }
+}
+
+// Mobile
+@media screen and (max-width: 48rem) {
+  .lab-02-b-main-layout__vertically-centered {
+    & > section {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+  }
+}
+
+// Tablet
+@media screen and (min-width: 48rem) and (max-width: 64rem) {
+  .lab-02-b-main-layout__vertically-centered {
+    & > section {
+      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    }
+  }
+}
+
+// Phablet & Desktop
+@media screen and (min-width: 64rem) {
+  .lab-02-b-main-layout__vertically-centered {
+    & > section {
+      grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    }
   }
 }

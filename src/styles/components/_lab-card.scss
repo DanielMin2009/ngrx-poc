@@ -1,0 +1,176 @@
+// Colors
+$lab-color-accent-900: rgba(217, 162, 60, 1); // #d9a23c
+$lab-color-warn-alert: rgba(231, 111, 81, 1); // #E76F51
+
+// Sizes
+$lab-card-height: 24rem;
+$lab-card-perspective: 200rem;
+
+// Mixins
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin background {
+  background-size: 100%;
+  background-position-y: center;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($lab-color-accent-900, 0.25),
+      rgba($lab-color-warn-alert, 0.88)
+    ),
+    url("../../assets/images/wallpapers/beer.jpg");
+}
+
+.lab-card {
+  flex: initial;
+  position: relative;
+  height: $lab-card-height;
+  width: 100%;
+  -moz-perspective: $lab-card-perspective;
+  perspective: $lab-card-perspective;
+  font: {
+    family: "MarkPro";
+  }
+
+  section {
+    height: $lab-card-height;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--lab-color-background);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: var(--lab-border-radius-large);
+    overflow: hidden;
+  }
+
+  &:hover {
+    cursor: pointer;
+    .lab-card__side--front {
+      transform: rotateY(-180deg);
+    }
+    .lab-card__side--back {
+      transform: rotateY(0);
+    }
+  }
+}
+
+// Front side
+.lab-card__side--front {
+  header {
+    position: relative;
+    height: 44%;
+    border-radius: var(--lab-border-radius-large) var(--lab-border-radius-large)
+      0 0;
+    @include background;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  }
+
+  h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    & > span {
+      padding: var(--lab-spacing-large);
+      color: var(--lab-color-text-quinary);
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.8rem;
+      font: {
+        family: "MarkPro", sans-serif;
+        size: var(--lab-font-size-xxx-large);
+        weight: 400;
+      }
+    }
+  }
+
+  main {
+    ul {
+      list-style: none;
+      margin: 0 auto;
+
+      li {
+        padding: var(--lab-spacing-small) var(--lab-spacing-large);
+        text-align: center;
+        overflow: hidden;
+        max-width: 45ch;
+        text-overflow: ellipsis;
+        max-height: 4rem;
+        font: {
+          size: var(--lab-font-size-x-small);
+        }
+        &:nth-child(1) {
+          color: var(--lab-color-primary-900);
+
+          font: {
+            weight: 600;
+          }
+        }
+        &:nth-last-child(n + 2) {
+          border-bottom: 1px solid var(--lab-color-background-mercury);
+        }
+        &:last-child {
+          &::after {
+            content: " ...more";
+            color: var(--lab-color-text-quaternary);
+          }
+        }
+      }
+    }
+    & > * {
+      margin-top: 3rem;
+    }
+    .mat-icon {
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+// Back side
+.lab-card__side--back {
+  background-color: var(--lab-color-background);
+  transform: rotateY(180deg);
+
+  figure {
+    display: flex;
+    justify-content: center;
+    img {
+      padding: 33.33%;
+      max-height: $lab-card-height;
+    }
+  }
+
+  footer {
+    position: absolute;
+    z-index: 2;
+    top: 60%;
+    height: 40%;
+    width: 100%;
+    background-color: var(--lab-color-background-warn-ok-rgba);
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+    h3 {
+      padding: var(--lab-spacing-xx-large);
+      text-align: center;
+      color: var(--lab-color-text-quinary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      font: {
+        family: "MarkPro", sans-serif;
+        size: var(--lab-font-size-large);
+        weight: 400;
+      }
+    }
+  }
+}
+
+

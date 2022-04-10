@@ -2,11 +2,6 @@
   *ngIf="(beersFacade.isLoading$ | async); then loading; else viewData"
 ></ng-container>
 
-<!-- <aside role="alert" *ngIf="(beersFacade.error$|async)">
-  <mat-icon>zoom_in</mat-icon>
-  <span>{{beersFacade.error$ | async }}</span>
-</aside> -->
-
 <ng-template #viewData>
   <section
     infinite-scroll
@@ -17,20 +12,14 @@
     <ng-container
       *ngFor="let beer of beersFacade.getBeers$ | async; let i = index; trackBy: getBeerById"
     >
-      <mat-card (click)="goToDetails(beer.id)">
-        <mat-card-header>
-          <span>Name</span>
-          <span>{{ beer.name }}</span>
-        </mat-card-header>
-        <mat-card-content>
-          <img [src]="beer.image_url" />
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-icon-button color="accent">
-            <mat-icon>zoom_in</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
+      <lab-card
+        (click)="goToDetails(beer.id)"
+        [pathImg]="beer.image_url"
+        [title]="beer.name | slice:-14 | specialChars"
+        [name]="beer.name"
+        [label]="beer.first_brewed"
+        [description]="beer.description  | slice:-75"
+      ></lab-card>
     </ng-container>
   </section>
 </ng-template>

@@ -1,24 +1,14 @@
 // Header
 .lab-shell__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
+  position: fixed;
+  z-index: 2;
   width: 100%;
-  padding: var(--lab-spacing-xx-large);
-  nav {
-    a {
-      margin-right: var(--lab-spacing-xxx-large);
-      font: {
-        family: "MarkPro";
-        weight: 500;
-        style: normal;
-        size: var(--lab-font-size-x-small);
-      }
-      text: {
-        transform: uppercase;
-      }
-      letter-spacing: 0.05rem;
-    }
+  padding: var(--lab-spacing-xxxx-large);
+}
+
+// Tablet
+@media screen and (max-width: 64rem) {
+  .lab-shell__header {
+    background-color: rgba($color: #d9a23c , $alpha: 0.9);
   }
 }

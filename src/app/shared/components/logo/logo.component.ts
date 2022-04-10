@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'lab-logo-component',
+  selector: 'lab-logo',
   templateUrl: './logo.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

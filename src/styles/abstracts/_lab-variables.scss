@@ -117,12 +117,13 @@ $lab-color-background: rgba(252, 248, 237, 1); // #fcf8ed
 $lab-color-background-mercury: rgba(248, 237, 210, 1); // #f8edd2
 $lab-color-background-rgba: rgba(252, 248, 237, 0.5); // #EEEDED - opacity 0.5
 $lab-color-background-accent: rgba(233, 196, 106, 1); // #E9C46A
+$lab-color-background-warn-ok-rgba: rgba(42, 157, 143, 0.8); // #2A9D8F
 // Text
 $lab-color-text-primary: rgba(13, 32, 41, 1); // #171b1c
 $lab-color-text-secondary: rgba(87, 91, 94, 1); // #575b5e
 $lab-color-text-tertiary: rgba(38, 70, 83, 1); // #264653
 $lab-color-text-quaternary: rgba(231, 111, 81, 1); // #E76F51
-$lab-color-text-quinary: rgba(225, 225, 225, 1); // #ffffff
+$lab-color-text-quinary: rgba(255, 255, 255, 1); // #ffffff
 // Font sizes
 $lab-font-size-x-large: 1.5rem; // 24px
 $lab-font-size-large: 1.25rem; // 20px
@@ -147,7 +148,7 @@ $lab-width-container-s: 66.25rem; // 1060px
 // Radius
 $lab-border-radius-small: 0.25rem; // 4px
 $lab-border-radius-medium: 0.3125rem; // 5px
-$lab-border-radius-large: 4.6875rem; // 75px
+$lab-border-radius-large: 25rem; // 400px
 // Opacity
 $lab-opacity-s: 0.33;
 $lab-opacity-m: 0.5;
@@ -175,6 +176,7 @@ $lab-opacity-l: 0.66;
   --lab-color-background-mercury: #{$lab-color-background-mercury};
   --lab-color-background-rgba: #{$lab-color-background-rgba};
   --lab-color-background-accent: #{$lab-color-background-accent};
+  --lab-color-background-warn-ok-rgba: #{$lab-color-background-warn-ok-rgba};
   // Text
   --lab-color-text-primary: #{$lab-color-text-primary};
   --lab-color-text-secondary: #{$lab-color-text-secondary};
@@ -205,7 +207,7 @@ $lab-opacity-l: 0.66;
   // Radius
   --lab-border-radius-small: #{$lab-border-radius-small}; // .25rem; // 4px
   --lab-border-radius-medium: #{$lab-border-radius-medium}; // .3125rem; // 5px
-  --lab-border-radius-large: #{$lab-border-radius-large}; // 1.5rem; // 25px
+  --lab-border-radius-large: #{$lab-border-radius-large}; // 25rem; // 400px
   // Opacity
   --lab-opacity-s: #{$lab-opacity-s}; // 0.33
   --lab-opacity-m: #{$lab-opacity-m}; // 0.50

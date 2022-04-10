@@ -3,27 +3,20 @@
   position: relative;
   overflow-y: auto;
   height: 100%;
-  & > section {
-    min-height: 100%;
-    margin: auto;
-  }
+  margin: auto;
 }
 
 // Media queries
 // Max 120rem - 1920px
 @media screen and (max-width: 120rem) {
   .lab-layout {
-    & > section {
-      max-width: var(--lab-width-container-s);
-    }
+    max-width: var(--lab-width-container-s);
   }
 }
 
 // Min 120rem - 1920px
 @media screen and (min-width: 120rem) {
   .lab-layout {
-    & > section {
-      max-width: var(--lab-width-container);
-    }
+    max-width: var(--lab-width-container);
   }
 }
