@@ -1,7 +1,6 @@
 <section #shell>
-  <lab-shell-header></lab-shell-header>
+  <lab-shell-sidenav></lab-shell-sidenav>
   <main class="lab-shell-wrapper__main-content" [@routeSlideState]="goToView(outlet)">
       <router-outlet #outletRef #outlet="outlet"></router-outlet>
   </main>
-  <lab-sidenav-component></lab-sidenav-component>
 </section>

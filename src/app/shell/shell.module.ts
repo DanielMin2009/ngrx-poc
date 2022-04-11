@@ -8,15 +8,14 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 
 // Components
 import { FooterShellComponent } from './footer/footer.component';
-import { HeaderShellComponent } from './header/header.component';
+import { SidenavShellComponent } from './sidenav/sidenav.component';
 import { ShellComponent } from './shell.component';
 
 // Shared
 import { LogoModule } from '../shared/components/logo/logo.module';
 import { SidenavModule } from '../shared/components/sidenav/sidenav.module';
 
-// Material
-import { MatInputModule } from '@angular/material/input';
+// Material conf
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
@@ -28,8 +27,6 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     // Shared
     LogoModule,
     SidenavModule,
-    // Material
-    MatInputModule,
   ],
   providers: [
     {
@@ -37,7 +34,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
       useValue: { appearance: 'outline' },
     },
   ],
-  declarations: [ShellComponent, FooterShellComponent, HeaderShellComponent],
+  declarations: [ShellComponent, FooterShellComponent, SidenavShellComponent],
   exports: [ShellComponent],
 })
 export class ShellModule {}
