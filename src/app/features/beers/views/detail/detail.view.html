@@ -4,16 +4,13 @@
 <ng-template #viewData>
   <section>
     <ng-container *ngIf="beersFacade.getBeerDetails$ | async as beerDetails;">
-      <mat-card>
-        <mat-card-header>
-          <span>Name</span>
-          <span>{{ beerDetails.name }}</span>
-        </mat-card-header>
-        <mat-card-content>
-          <figure><img [src]="beerDetails.image_url" [alt]="beerDetails.name" /></figure>
-          <p>{{ beerDetails.description }}</p>
-        </mat-card-content>
-      </mat-card>
+      <lab-card
+        [pathImg]="beerDetails.image_url"
+        [title]="beerDetails.name"
+        [name]="beerDetails.name"
+        [label]="beerDetails.first_brewed"
+        [description]="beerDetails.description"
+      ></lab-card>
     </ng-container>
   </section>
 </ng-template>
