@@ -1,5 +1,15 @@
-import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
+// RxJS
+import { Subscription } from 'rxjs';
 
 // Shared
 import { LayoutTypeClass } from 'src/app/shared/definitions/styles';
@@ -12,7 +22,7 @@ import { Beer } from '../../models/beer';
   templateUrl: './list.view.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListView {
+export class ListView implements OnInit, OnDestroy {
   @HostBinding('class') className = LayoutTypeClass.BeersMainVerticallyCentered;
 
   page = 1;
@@ -20,10 +30,28 @@ export class ListView {
   throttle = 300;
   scrollDistance = 0.2;
 
-  constructor(public beersFacade: BeersFacade, private router: Router) {}
+  querySubscription: Subscription | undefined;
+  form: FormGroup = this.formBuilder.group({
+    query: [''],
+  });
+
+  constructor(
+    public beersFacade: BeersFacade,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.beersFacade.getBeers({ page: this.page, limit: this.limit });
+    this.querySubscription = this.form
+      .get('query')
+      ?.valueChanges.subscribe((query) => {
+        this.beersFacade.setFilteredBeersByName(query);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.querySubscription?.unsubscribe();
   }
 
   getBeerById(index: number, beer: Beer): number {
