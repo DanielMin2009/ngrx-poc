@@ -8,10 +8,15 @@
     }
   }
 }
-
-// Header
-.lab-02-b-main-layout__vertically-centered {
+// Searchbar
+.lab-searchbar {
+  .mat-form-field-wrapper {
+    padding-bottom: unset;
+  }
   .mat-form-field-appearance-outline {
+    .mat-form-field-wrapper {
+      margin: unset;
+    }
     .mat-form-field-outline-start {
       border-radius: 1.875rem 0 0 1.875rem;
       margin-left: -1rem;
@@ -35,7 +40,7 @@
 
   .mat-form-field-appearance-outline {
     .mat-form-field-outline {
-      color: var(--lab-color-accent-200);
+      color: var(--lab-color-primary-0);
     }
     &.mat-focused {
       .mat-form-field-outline-thick {
@@ -73,7 +78,7 @@
 // Media Queries
 // Mobile
 @media screen and (max-width: 64rem) {
-  .lab-02-b-main-layout__vertically-centered {
+  .lab-searchbar {
     .mat-form-field {
       width: 100%;
     }
@@ -82,7 +87,7 @@
 
 // Tablet
 @media screen and (min-width: 64rem) and (max-width: 120rem) {
-  .lab-02-b-main-layout__vertically-centered {
+  .lab-searchbar {
     .mat-form-field {
       width: 50%;
     }
@@ -91,7 +96,7 @@
 
 // Phablet & Desktop
 @media screen and (min-width: 120rem) {
-  .lab-02-b-main-layout__vertically-centered {
+  .lab-searchbar {
     .mat-form-field {
       width: 25%;
     }

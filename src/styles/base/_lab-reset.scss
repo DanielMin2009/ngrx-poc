@@ -402,14 +402,14 @@ template {
 }
 
 ::-webkit-scrollbar-track {
-  background-color:var(--lab-color-background-accent);
+  background-color:var(--lab-color-accent-200);
   box-shadow: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--lab-color-background-rgba);
+  background-color: var(--lab-color-warn-attention);
   border-radius: var(--lab-border-radius-small);
   &:hover {
-    background-color: var(--lab-color-background-mercury);
+    background-color: var(--lab-color-warn-alert);
   }
 }

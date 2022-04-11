@@ -1,0 +1,60 @@
+// Searchbar
+.lab-searchbar {
+  position: fixed;
+  padding: var(--lab-spacing-xx-large);
+  margin: -1.5rem;
+  min-height: var(--lab-height-header);
+  z-index: 2;
+  background-color: rgba($color: #f4e2b5, $alpha: 0.8);
+  border-bottom: 1px solid var(--lab-color-background-rgba);
+  & > form {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--lab-spacing-large);
+    margin: auto;
+    min-height: var(--lab-height-header);
+  }
+}
+
+// Media queries
+// Small Mobile
+@media screen and (max-width: 48rem) {
+  .lab-searchbar {
+    width: calc(100% - var(--lab-width-menu-collapsed));
+  }
+}
+
+// Mobile
+@media screen and (min-width: 48rem) and (max-width: 64rem) {
+  .lab-searchbar {
+    width: calc(
+      100% - var(--lab-width-menu-expanded) - var(--lab-spacing-xxx-large)
+    );
+  }
+}
+
+// Tablet, Phablet & Desktop
+@media screen and (min-width: 64rem) {
+  .lab-searchbar {
+    width: calc(100% - var(--lab-width-menu-expanded));
+    margin: -1.5rem;
+  }
+}
+// Container
+// Max 120rem - 1920px
+@media screen and (max-width: 120rem) {
+  .lab-searchbar {
+    & > form {
+      max-width: var(--lab-width-container-s);
+    }
+  }
+}
+
+// Min 120rem - 1920px
+@media screen and (min-width: 120rem) {
+  .lab-searchbar {
+    & > form {
+      max-width: var(--lab-width-container);
+    }
+  }
+}

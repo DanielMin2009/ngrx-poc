@@ -1,7 +1,21 @@
 // Logo
 .lab-logo {
-  width: 6.6rem;
   &:hover {
     cursor: pointer;
   }
 }
+
+// Media Queries
+// Small Mobile
+@media screen and (max-width: 48rem) {
+  .lab-logo {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .lab-logo {
+    width: 6.6rem;
+  }
+}
+

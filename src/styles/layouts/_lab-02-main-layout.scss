@@ -1,20 +1,49 @@
 // Layout | Common
-.lab-layout {
+.lab-02-main-layout {
   position: relative;
-  overflow-y: auto;
-  height: 100%;
-  margin: auto;
-  max-width: calc(100% - var(--lab-width-menu-expanded));
-  margin-left: var(--lab-width-menu-expanded);
+  padding: var(--lab-spacing-xx-large);
   & > form,
   & > section {
     margin: auto;
   }
 }
 
-// Media queries
+// Media Queries
+// Small Mobile
+@media screen and (max-width: 48rem) {
+  .lab-02-main-layout {
+    margin-left: var(--lab-width-menu-collapsed);
+  }
+}
+
+// Mobile
+@media screen and (min-width: 48rem) and (max-width: 64rem) {
+  .lab-02-main-layout {
+    margin-left: calc(
+      var(--lab-width-menu-expanded) - var(--lab-spacing-xxx-large)
+    );
+  }
+}
+
+// Tablet, Phablet & Desktop
+@media screen and (min-width: 64rem) {
+  .lab-02-main-layout {
+    margin-left: var(--lab-width-menu-expanded);
+  }
+}
+
+// Container
+// Small Mobile
+@media screen and (max-width: 64rem) {
+  .lab-layout {
+    & > form,
+    & > section {
+      max-width: 100%;
+    }
+  }
+}
 // Max 120rem - 1920px
-@media screen and (max-width: 120rem) {
+@media screen and (min-width: 64rem) and (max-width: 120rem) {
   .lab-layout {
     & > form,
     & > section {

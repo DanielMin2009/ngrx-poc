@@ -1,3 +1,10 @@
 .lab-layout {
-  padding: var(--lab-spacing-xxxx-large);
+  padding: var(--lab-spacing-xx-large);
+  overflow-y: auto;
+  height: 100%;
+  margin: auto;
+  background-color: var(--lab-color-accent-200);
 }
+
+
+

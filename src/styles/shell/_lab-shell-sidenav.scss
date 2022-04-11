@@ -2,8 +2,30 @@
 .lab-shell__sidenav {
   position: fixed;
   min-height: 100vh;
-  width: 100%;
-  max-width: var(--lab-width-menu-expanded);
-  padding: var(--lab-spacing-xxxx-large);
   border-right: 1px solid var(--lab-color-background-rgba);
+}
+
+// Media Queries
+// Small Mobile
+@media screen and (max-width: 48rem) {
+  .lab-shell__sidenav {
+    width: var(--lab-width-menu-collapsed);
+    padding: var(--lab-spacing-xxxx-large) var(--lab-spacing-x-large);
+  }
+}
+
+// Mobile
+@media screen and (min-width: 48rem) and (max-width: 64rem) {
+  .lab-shell__sidenav {
+    width: calc(var(--lab-width-menu-expanded) - var(--lab-spacing-xxx-large));
+    padding: var(--lab-spacing-xxxx-large) var(--lab-spacing-large);
+  }
+}
+
+// Tablet, Phablet & Desktop
+@media screen and (min-width: 64rem) {
+  .lab-shell__sidenav {
+    width: var(--lab-width-menu-expanded);
+    padding: var(--lab-spacing-xxxx-large);
+  }
 }
