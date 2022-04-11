@@ -4,19 +4,31 @@
   overflow-y: auto;
   height: 100%;
   margin: auto;
+  max-width: calc(100% - var(--lab-width-menu-expanded));
+  margin-left: var(--lab-width-menu-expanded);
+  & > form,
+  & > section {
+    margin: auto;
+  }
 }
 
 // Media queries
 // Max 120rem - 1920px
 @media screen and (max-width: 120rem) {
   .lab-layout {
-    max-width: var(--lab-width-container-s);
+    & > form,
+    & > section {
+      max-width: var(--lab-width-container-s);
+    }
   }
 }
 
 // Min 120rem - 1920px
 @media screen and (min-width: 120rem) {
   .lab-layout {
-    max-width: var(--lab-width-container);
+    & > form,
+    & > section {
+      max-width: var(--lab-width-container);
+    }
   }
 }

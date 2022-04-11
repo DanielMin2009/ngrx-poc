@@ -5,11 +5,20 @@
   }
 }
 
-// Mobile
-@media screen and (max-width: 48rem) {
+// Media Queries
+// Small Mobile
+@media screen and (max-width: 36rem) {
   .lab-02-b-main-layout__vertically-centered {
     & > section {
-      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      grid-template-columns: 1fr;
+    }
+  }
+}
+// Mobile
+@media screen and (min-width: 36rem) and (max-width: 48rem) {
+  .lab-02-b-main-layout__vertically-centered {
+    & > section {
+      grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
     }
   }
 }
@@ -18,7 +27,7 @@
 @media screen and (min-width: 48rem) and (max-width: 64rem) {
   .lab-02-b-main-layout__vertically-centered {
     & > section {
-      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
     }
   }
 }

@@ -115,7 +115,7 @@ $lab-color-warn-attention: rgba(244, 162, 97, 1); // #F4A261
 // Background
 $lab-color-background: rgba(252, 248, 237, 1); // #fcf8ed
 $lab-color-background-mercury: rgba(248, 237, 210, 1); // #f8edd2
-$lab-color-background-rgba: rgba(252, 248, 237, 0.5); // #EEEDED - opacity 0.5
+$lab-color-background-rgba: rgba(252, 248, 237, 0.33); // #EEEDED - opacity 0.33
 $lab-color-background-accent: rgba(233, 196, 106, 1); // #E9C46A
 $lab-color-background-warn-ok-rgba: rgba(42, 157, 143, 0.8); // #2A9D8F
 // Text
@@ -143,6 +143,8 @@ $lab-spacing-x-small: 0.375rem; // 6px
 $lab-spacing-xx-small: 0.25rem; // 4px
 $lab-spacing-xxx-small: 0.0125rem; // 2px
 // Global sizes
+$lab-width-menu-collapsed: 4.3125rem; // 69px
+$lab-width-menu-expanded: 17.5rem; // 280px
 $lab-width-container: 75rem; // 1200px
 $lab-width-container-s: 66.25rem; // 1060px
 // Radius
@@ -202,6 +204,8 @@ $lab-opacity-l: 0.66;
   --lab-spacing-xx-small: #{$lab-spacing-xx-small}; // 0.25rem; // 4px
   --lab-spacing-xxx-small: #{$lab-spacing-xxx-small}; // 0.125rem; // 2px
   // Global Sizes
+  --lab-width-menu-collapsed: #{$lab-width-menu-collapsed}; // 4.3125rem; // 69px
+  --lab-width-menu-expanded: #{$lab-width-menu-expanded}; // 16rem; // 256px
   --lab-width-container: #{$lab-width-container}; // 75rem; // 1200px
   --lab-width-container-s: #{$lab-width-container-s}; // 66.25rem; // 1060px
   // Radius
