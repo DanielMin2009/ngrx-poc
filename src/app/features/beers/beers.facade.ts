@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 // RxJS
-import { Observable } from 'rxjs';
+import { filter, Observable } from 'rxjs';
 
 // Definitions
 import { Beer } from '../beers/models/beer';
@@ -13,10 +13,6 @@ import * as fromActions from './store/beer.actions';
 import * as fromSelectors from './store/beer.selectors';
 @Injectable({ providedIn: 'root' })
 export class BeersFacade {
-  getBeers$: Observable<Beer[] | null> = this.store.select(
-    fromSelectors.selectBeers
-  );
-
   isLoading$: Observable<boolean> = this.store.select(
     fromSelectors.selectIsLoading
   );
@@ -24,9 +20,17 @@ export class BeersFacade {
   getBeerDetails$: Observable<BeerDetails | null | undefined> =
     this.store.select(fromSelectors.selectBeerDetails);
 
-  error$: Observable<string | null> = this.store.select(
-    fromSelectors.selectGetBeersFailure
+  getBeersByName$: Observable<Beer[]> = this.store.select(
+    fromSelectors.selectBeersByQuery
   );
+
+  error$: Observable<string | null> = this.store
+    .select(fromSelectors.selectGetBeersFailure)
+    .pipe(
+      filter((error) => {
+        return !!error;
+      })
+    );
 
   constructor(private store: Store) {}
 
@@ -36,5 +40,13 @@ export class BeersFacade {
 
   getBeerById(beerId: number): void {
     this.store.dispatch(fromActions.getBeerById({ beerId }));
+  }
+
+  getBeersByName(query: string): void {
+    this.store.dispatch(fromActions.setFilterQuery({ query }));
+  }
+
+  resetQuery(): void {
+    this.store.dispatch(fromActions.resetQuery());
   }
 }
