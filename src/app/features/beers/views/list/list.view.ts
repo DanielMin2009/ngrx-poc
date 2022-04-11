@@ -6,7 +6,6 @@ import {
   OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
 // RxJS
 import { Subscription } from 'rxjs';
@@ -22,38 +21,19 @@ import { Beer } from '../../models/beer';
   templateUrl: './list.view.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListView implements OnInit, OnDestroy {
-  @HostBinding('class') className = LayoutTypeClass.BeersMainVerticallyCentered;
+export class ListView implements OnInit {
+  @HostBinding('class') className = LayoutTypeClass.BeersMainVerticallyTop;
 
   page = 1;
   limit = 12;
   throttle = 300;
   scrollDistance = 0.2;
 
-  querySubscription: Subscription | undefined;
-  form: FormGroup = this.formBuilder.group({
-    query: [''],
-  });
-
-  constructor(
-    public beersFacade: BeersFacade,
-    private formBuilder: FormBuilder,
-    private router: Router
-  ) {}
+  constructor(public beersFacade: BeersFacade, private router: Router) {}
 
   ngOnInit(): void {
     this.beersFacade.getBeers({ page: this.page, limit: this.limit });
-    this.querySubscription = this.form
-      .get('query')
-      ?.valueChanges.subscribe((query) => {
-        this.beersFacade.setFilteredBeersByName(query);
-      });
   }
-
-  ngOnDestroy(): void {
-    this.querySubscription?.unsubscribe();
-  }
-
   getBeerById(index: number, beer: Beer): number {
     return beer.id;
   }
