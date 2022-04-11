@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
+  Inject,
   OnDestroy,
   OnInit,
 } from '@angular/core';
@@ -9,7 +10,7 @@ import {
 import { Router } from '@angular/router';
 
 // Material
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 
 // Shared
 import { LayoutTypeClass } from '../../../../shared/definitions/styles';
@@ -64,7 +65,7 @@ export class ListView implements OnInit, OnDestroy {
   }
 
   onErrorSuscription(): void {
-    this.beersFacade.error$.subscribe(() => {
+    this.beersFacade.error$.subscribe((error) => {
       this.snackBar.open('Something went wrong', 'Close', {
         duration: 4000,
         horizontalPosition: 'center',

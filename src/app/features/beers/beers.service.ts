@@ -23,7 +23,7 @@ export class BeerService {
     limit = INFINITE_SCROLL.limit,
   }): Observable<Beer[]> {
     return this.http.get<Beer[]>(
-      `https://api.punkapi.com/v2/brs?page=${page}&per_page=${limit}`
+      `https://api.punkapi.com/v2/beers?page=${page}&per_page=${limit}`
     );
   }
 

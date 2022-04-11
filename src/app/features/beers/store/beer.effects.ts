@@ -21,7 +21,11 @@ export class BeerEffects {
             return fromActions.getBeersSucess({ beers });
           }),
           catchError((error) => {
-            return of(fromActions.getBeersFailure({ error }));
+            return of(
+              fromActions.getBeersFailure({
+                error: 'Ooops... Something went wrong',
+              })
+            );
           })
         )
       )
