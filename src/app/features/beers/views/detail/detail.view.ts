@@ -12,7 +12,7 @@ import { BeersFacade } from '../../beers.facade';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailView {
-  @HostBinding('class') className = LayoutTypeClass.BeersMainVerticallyTop;
+  @HostBinding('class') className = LayoutTypeClass.BeersMainVerticallyCentered;
 
   constructor(public beersFacade: BeersFacade, private route: ActivatedRoute) {}
 
