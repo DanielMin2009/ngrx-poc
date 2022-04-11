@@ -3,6 +3,7 @@ import { Beer } from '../models/beer';
 import { BeerDetails } from '../models/beerDetails';
 
 import * as fromActions from './beer.actions';
+import { setFilterQuery } from './beer.actions';
 
 export const featureKey = 'beers';
 export interface BeerState {
@@ -10,6 +11,7 @@ export interface BeerState {
   beerDetails?: BeerDetails | null;
   isLoading: boolean;
   error: any | null;
+  query: string | null;
 }
 
 export const initialState: BeerState = {
@@ -17,6 +19,7 @@ export const initialState: BeerState = {
   beerDetails: null,
   isLoading: false,
   error: null,
+  query: '',
 };
 
 export const BeersReducer = createReducer(
@@ -46,5 +49,13 @@ export const BeersReducer = createReducer(
     ...state,
     error,
     isLoading: false,
+  })),
+  on(fromActions.setFilterQuery, (state, { query }) => ({
+    ...state,
+    query,
+  })),
+  on(fromActions.resetQuery, (state) => ({
+    ...state,
+    query: '',
   }))
 );

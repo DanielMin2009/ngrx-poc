@@ -27,3 +27,20 @@ export const selectGetBeersFailure = createSelector(
   selectBeerFeature,
   (state) => state.error
 );
+
+export const setFilterQuery = createSelector(
+  selectBeerFeature,
+  (state) => state.query
+);
+
+export const selectBeersByQuery = createSelector(
+  selectBeers,
+  setFilterQuery,
+  (beers, query) => {
+    // Filter Array
+    if (query === '') return beers;
+    return beers.filter((item) =>
+      item.name.toLowerCase().includes(query?.toLowerCase() as string)
+    );
+  }
+);
