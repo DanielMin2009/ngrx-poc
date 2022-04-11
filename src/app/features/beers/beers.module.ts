@@ -1,42 +1,44 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Sources
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 // Views
 import { DetailView } from './views/detail/detail.view';
 import { ListView } from './views/list/list.view';
 
-// Sources
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+// Shared
+import { CardModule } from 'src/app/shared/components/card/card.module';
+import { SearchbarModule } from '../../shared/components/searchbar/searchbar.module';
+import { SpecialChars } from 'src/app/shared/pipes/special-chars.pipe';
 
 // Material
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { CardModule } from 'src/app/shared/components/card/card.module';
-import { specialChars } from 'src/app/shared/pipes/special-chars.pipe';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const materialModules = [
   MatButtonModule,
-  MatCardModule,
   MatIconModule,
-  MatSnackBarModule,
-  MatTooltipModule,
+  MatInputModule,
   MatProgressSpinnerModule,
+  MatSnackBarModule,
 ];
 @NgModule({
   imports: [
     CommonModule,
-    // Components
+    InfiniteScrollModule,
+    // Shared
     CardModule,
+    SearchbarModule,
     // Material
     ...materialModules,
-    InfiniteScrollModule,
   ],
   exports: [],
-  declarations: [DetailView, ListView, specialChars],
+  declarations: [DetailView, ListView, SpecialChars],
   providers: [],
 })
 export class BeersModule {}

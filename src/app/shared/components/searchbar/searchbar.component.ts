@@ -1,13 +1,17 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   HostBinding,
   OnDestroy,
   OnInit,
+  Output,
 } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+// RxJS
 import { Subscription } from 'rxjs';
-import { BeersFacade } from 'src/app/features/beers/beers.facade';
 
 @Component({
   selector: 'lab-searchbar',
@@ -22,16 +26,15 @@ export class SearchbarComponent implements OnInit, OnDestroy {
     query: [''],
   });
 
-  constructor(
-    public beersFacade: BeersFacade,
-    private formBuilder: FormBuilder
-  ) {}
+  @Output() search = new EventEmitter<string>();
+
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.querySubscription = this.form
       .get('query')
       ?.valueChanges.subscribe((query) => {
-        this.beersFacade.setFilteredBeersByName(query);
+        this.search.emit(query);
       });
   }
 
