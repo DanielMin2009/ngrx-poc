@@ -26,12 +26,7 @@ $lab-card-perspective: 200rem;
 }
 
 @mixin transitionUp {
-  transform: translateY(-0.625rem);
-  transition: 0.2s ease-in-out;
-}
-
-@mixin transitionDown {
-  transform: translateY(0.3725rem);
+  transform: translateY(-0.3125rem);
   transition: 0.2s ease-in-out;
 }
 
@@ -46,7 +41,7 @@ $lab-card-perspective: 200rem;
     family: "MarkPro";
   }
 
-  section {
+  .lab-card__side {
     height: $lab-card-height;
     transition: all 0.8s ease;
     position: absolute;
@@ -152,9 +147,6 @@ $lab-card-perspective: 200rem;
   &:hover {
     figure {
       @include transitionUp;
-    }
-    footer {
-      @include transitionDown;
     }
   }
 
