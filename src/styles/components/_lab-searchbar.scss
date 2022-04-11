@@ -28,7 +28,7 @@
 @media screen and (min-width: 48rem) and (max-width: 64rem) {
   .lab-searchbar {
     width: calc(
-      100% - var(--lab-width-menu-expanded) - var(--lab-spacing-xxx-large)
+      100% - var(--lab-width-menu-expanded) + var(--lab-spacing-xxx-large)
     );
   }
 }
