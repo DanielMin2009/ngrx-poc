@@ -5,13 +5,15 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
+
 import { Router } from '@angular/router';
 
-// RxJS
-import { Subscription } from 'rxjs';
+// Material
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 // Shared
-import { LayoutTypeClass } from 'src/app/shared/definitions/styles';
+import { LayoutTypeClass } from '../../../../shared/definitions/styles';
+import { INFINITE_SCROLL } from '../../../../shared/definitions/units';
 
 // Feature Beers
 import { BeersFacade } from '../../beers.facade';
@@ -21,19 +23,29 @@ import { Beer } from '../../models/beer';
   templateUrl: './list.view.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListView implements OnInit {
+export class ListView implements OnInit, OnDestroy {
   @HostBinding('class') className = LayoutTypeClass.BeersMainVerticallyTop;
 
-  page = 1;
-  limit = 12;
-  throttle = 300;
-  scrollDistance = 0.2;
+  page = INFINITE_SCROLL.page;
+  limit = INFINITE_SCROLL.limit;
+  throttle = INFINITE_SCROLL.throttle;
+  scrollDistance = INFINITE_SCROLL.scrollDistance;
 
-  constructor(public beersFacade: BeersFacade, private router: Router) {}
+  constructor(
+    public beersFacade: BeersFacade,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.beersFacade.getBeers({ page: this.page, limit: this.limit });
+    this.onErrorSuscription();
   }
+
+  ngOnDestroy(): void {
+    this.beersFacade.resetQuery();
+  }
+
   getBeerById(index: number, beer: Beer): number {
     return beer.id;
   }
@@ -45,5 +57,19 @@ export class ListView implements OnInit {
   onScrollEnd() {
     this.page += 1;
     this.beersFacade.getBeers({ page: this.page, limit: this.limit });
+  }
+
+  filter(query: string): void {
+    this.beersFacade.getBeersByName(query);
+  }
+
+  onErrorSuscription(): void {
+    this.beersFacade.error$.subscribe(() => {
+      this.snackBar.open('Something went wrong', 'Close', {
+        duration: 4000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
+    });
   }
 }

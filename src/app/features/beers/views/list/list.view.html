@@ -1,4 +1,4 @@
-<lab-searchbar></lab-searchbar>
+<lab-searchbar (search)="filter($event)"></lab-searchbar>
 <ng-container
   *ngIf="(beersFacade.isLoading$ | async); then loading; else viewData"
 ></ng-container>
@@ -11,7 +11,7 @@
     (scrolled)="onScrollEnd()"
   >
     <ng-container
-      *ngFor="let beer of beersFacade.getBeers$ | async; let i = index; trackBy: getBeerById"
+      *ngFor="let beer of beersFacade.getBeersByName$ | async; let i = index; trackBy: getBeerById"
     >
       <lab-card
         (click)="goToDetails(beer.id)"
@@ -26,8 +26,8 @@
 </ng-template>
 
 <ng-template #loading>
-  <section>
-    <mat-spinner color="accent" diameter="60" strokeWidth="3" value="100">
+  <aside>
+    <mat-spinner color="warn" diameter="60" strokeWidth="3" value="100">
     </mat-spinner>
-  </section>
+  </aside>
 </ng-template>
