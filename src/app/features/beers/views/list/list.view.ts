@@ -2,15 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
-  Inject,
   OnDestroy,
   OnInit,
 } from '@angular/core';
-
 import { Router } from '@angular/router';
-
-// Material
-import { MatSnackBar, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 
 // Shared
 import { LayoutTypeClass } from '../../../../shared/definitions/styles';
@@ -32,11 +27,7 @@ export class ListView implements OnInit, OnDestroy {
   throttle = INFINITE_SCROLL.throttle;
   scrollDistance = INFINITE_SCROLL.scrollDistance;
 
-  constructor(
-    public beersFacade: BeersFacade,
-    private router: Router,
-    private snackBar: MatSnackBar
-  ) {}
+  constructor(public beersFacade: BeersFacade, private router: Router) {}
 
   ngOnInit(): void {
     this.beersFacade.getBeers({ page: this.page, limit: this.limit });
@@ -66,11 +57,8 @@ export class ListView implements OnInit, OnDestroy {
 
   onErrorSuscription(): void {
     this.beersFacade.error$.subscribe((error) => {
-      this.snackBar.open('Something went wrong', 'Close', {
-        duration: 4000,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
+      // TODO: Here we should show an error with a kind of toast
+      alert(error);
     });
   }
 }
