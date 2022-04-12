@@ -138,4 +138,5 @@ This is the last step I have been able to develop in this test. I have also adde
 
 ### 2.10. Other topics
 As a details, I would like to explain that I have used a pipe sanitizer to remove strange chars.
+I have added Angular routing animations.
 >**Improvements**_: *I would like to add a guard to protect the child routs from the list.*
