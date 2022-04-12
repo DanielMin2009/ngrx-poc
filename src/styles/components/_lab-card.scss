@@ -228,7 +228,7 @@ $lab-card-perspective: 200rem;
   // Back side
   .lab-card__side--back {
     padding: 7rem;
-    border: 1px solid var(--lab-color-accent-900);
+    border: 2px solid var(--lab-color-primary-0);
     border-radius: var(--lab-border-radius-large);
     figure {
       display: flex;
