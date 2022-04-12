@@ -6,7 +6,7 @@
     <ng-container *ngIf="beersFacade.getBeerDetails$ | async as beerDetails;">
       <lab-card
         [pathImg]="beerDetails.image_url"
-        [title]="beerDetails.name"
+        [title]="beerDetails.name | titlecase | specialChars"
         [label]="beerDetails.first_brewed"
         [description]="beerDetails.description"
       ></lab-card>
