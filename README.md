@@ -112,11 +112,11 @@ To style them I apply the UI architecture described and in the vendors folder, I
 To display them I have finally decided to create an own UI card component, because the effort to custom the Material ones was too big than creating an own one.
 
 To do that in a solid way, I have created all the root style guide variables and customized the Angular Material Theming following the Material Colors theory and I have aligned the naming way with the own root style guide variables.
-### 2.6. Create layout type util:
+### 2.6. Create layout type util
 The layout type thinking described is based in a previous analysis we need to encapsulate all the views, so all the ui components combinations with a layout type class. 
 
 Use them as a magic string could cause errors because they are too long with all BEM modifiers. To prevent them I have created a util in the shared folder, to save these combinations in an enum. In this enum, I have also added the bonus of the feature class name. With that class, we would be able to encaspulate some possible modifications in a special view if the designs wont be well parametrized.
-### 2.7. Infinite scroll:
+### 2.7. Infinite scroll
 I have insttalled the ngx infinit scroll lib, I've setted the params in a section in the list and created the events on scroll passing these params.
 
 After that I have reviewed the API documentation and I have used the endpoint with the params pages and items per page.
@@ -124,7 +124,7 @@ After that I have reviewed the API documentation and I have used the endpoint wi
 I have developed the functionality modifying the request in the service and passing these two params to request method.
 
 Finally I have created an enum in order to do these kind of units reusables.
-### 2.8. Filter query:
+### 2.8. Filter query
 In this step, the query should filter the data fetched in the browser. It was not a request to the API and that's why I have filtered by the item.name introduced in the search bar.
 
 I have used the selectors to return the new state and show it to the view. 
