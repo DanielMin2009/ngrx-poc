@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Views
-import { DetailView } from './features/beers/views/detail/detail.view';
-import { ListView } from './features/beers/views/list/list.view';
+import { DetailView } from './features/users/views/detail/detail.view';
+import { ListView } from './features/users/views/list/list.view';
 
 const ROUTES: Routes = [
-  { path: 'beers', component: ListView, data: { menuItem: 1 } },
-  { path: 'beers/:id', component: DetailView, data: { menuItem: 2 } },
+  { path: 'users', component: ListView, data: { menuItem: 1 } },
+  { path: 'users/:id', component: DetailView, data: { menuItem: 2 } },
 
-  { path: '**', pathMatch: 'full', redirectTo: 'beers' },
+  { path: '**', pathMatch: 'full', redirectTo: 'users' },
 ];
 
 @NgModule({

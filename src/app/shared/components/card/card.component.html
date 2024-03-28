@@ -1,4 +1,3 @@
-
 <section class="lab-card__side lab-card__side--front">
   <header>
     <h4>
@@ -9,16 +8,18 @@
   </header>
   <main>
     <ul>
-      <li>Brew date: {{ label }}</li>
-      <li>{{ description }}</li>
+      <li>Phone: {{ phone }}</li>
+      <li>{{ email }}</li>
     </ul>
     <mat-icon color="warn">zoom_in</mat-icon>
   </main>
 </section>
 
 <section class="lab-card__side lab-card__side--back">
-    <figure>
-      <img [src]="pathImg" />
-    </figure>
-    <footer class="lab-card__title"><h3>{{ name }}</h3></footer>
+  <figure>
+    <img src="../../../../../assets/images/{{ pathImg }}" />
+  </figure>
+  <footer class="lab-card__title">
+    <h3>{{ phone }}</h3>
+  </footer>
 </section>

@@ -1,0 +1,22 @@
+<ng-container
+  *ngIf="(usersFacade.isLoading$ | async); then loading; else viewData"
+></ng-container>
+<ng-template #viewData>
+  <section>
+    <ng-container *ngIf="usersFacade.getUserDetails$ | async as userDetails;">
+      <lab-card
+        pathImg="avatar.svg"
+        [title]="userDetails.name | titlecase | specialChars"
+        [phone]="userDetails.name"
+        [email]="userDetails.email"
+      ></lab-card>
+    </ng-container>
+  </section>
+</ng-template>
+
+<ng-template #loading>
+  <section>
+    <mat-spinner color="accent" diameter="60" strokeWidth="3" value="100">
+    </mat-spinner>
+  </section>
+</ng-template>

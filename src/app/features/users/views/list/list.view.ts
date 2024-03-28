@@ -11,52 +11,52 @@ import { Router } from '@angular/router';
 import { LayoutTypeClass } from '../../../../shared/definitions/styles';
 import { INFINITE_SCROLL } from '../../../../shared/definitions/units';
 
-// Feature Beers
-import { BeersFacade } from '../../beers.facade';
-import { Beer } from '../../models/beer';
+// Feature Users
+import { UsersFacade } from '../../users.facade';
+import { User } from '../../models/user';
 @Component({
   selector: 'lab-list-view',
   templateUrl: './list.view.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListView implements OnInit, OnDestroy {
-  @HostBinding('class') className = LayoutTypeClass.BeersMainVerticallyTop;
+  @HostBinding('class') className = LayoutTypeClass.UsersMainVerticallyTop;
 
   page = INFINITE_SCROLL.page;
   limit = INFINITE_SCROLL.limit;
   throttle = INFINITE_SCROLL.throttle;
   scrollDistance = INFINITE_SCROLL.scrollDistance;
 
-  constructor(public beersFacade: BeersFacade, private router: Router) {}
+  constructor(public usersFacade: UsersFacade, private router: Router) {}
 
   ngOnInit(): void {
-    this.beersFacade.getBeers({ page: this.page, limit: this.limit });
+    this.usersFacade.getUsers({ page: this.page, limit: this.limit });
     this.onErrorSuscription();
   }
 
   ngOnDestroy(): void {
-    this.beersFacade.resetQuery();
+    this.usersFacade.resetQuery();
   }
 
-  getBeerById(index: number, beer: Beer): number {
-    return beer.id;
+  getUserById(index: number, user: User): number {
+    return user.id;
   }
 
-  goToDetails(beerId: number): void {
-    this.router.navigateByUrl(`beers/${beerId}`);
+  onSendEmail(userId: number): void {
+    window.location.href = `mailto:danipanies@gmail.com?subject=Estoy interesado en contar con sus servicios de consultoría&body=Soy usuario con UID: ${userId}`;
   }
 
   onScrollEnd() {
     this.page += 1;
-    this.beersFacade.getBeers({ page: this.page, limit: this.limit });
+    this.usersFacade.getUsers({ page: this.page, limit: this.limit });
   }
 
   filter(query: string): void {
-    this.beersFacade.getBeersByName(query);
+    this.usersFacade.getUsersByName(query);
   }
 
   onErrorSuscription(): void {
-    this.beersFacade.error$.subscribe((error) => {
+    this.usersFacade.error$.subscribe((error) => {
       // TODO: Here we should show an error with a kind of toast
       alert(error);
     });

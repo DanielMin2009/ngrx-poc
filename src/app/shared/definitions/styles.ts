@@ -10,8 +10,8 @@ export const LayoutTypeClass = {
   // Common
   Login: 'lab-layout lab-00-login-layout',
   Dashboard: 'lab-layout lab-01-dashboard-layout',
-  // Beers
-  BeersMainVerticallyTop: verticallyTop('beers'),
-  BeersMainVerticallyCentered: verticallyCentered('beers'),
-  BeersMainSpaceBetween: spaceBetween('beers'),
+  // Users
+  UsersMainVerticallyTop: verticallyTop('users'),
+  UsersMainVerticallyCentered: verticallyCentered('users'),
+  UsersMainSpaceBetween: spaceBetween('users'),
 };

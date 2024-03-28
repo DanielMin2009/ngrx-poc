@@ -15,14 +15,14 @@ $lab-card-perspective: 200rem;
 }
 
 @mixin background {
-  background-size: 100%;
-  background-position-y: center;
+  background-size: cover;
+  background-position-y: top;
   background-image: linear-gradient(
       to right bottom,
-      rgba($lab-color-accent-900, 0.25),
-      rgba($lab-color-warn-alert, 0.88)
+      rgba($lab-color-accent-900, 0.55),
+      rgba($lab-color-warn-alert, 1)
     ),
-    url("../../assets/images/wallpapers/beer.jpg");
+    url("../../assets/images/wallpapers/user.jpg");
 }
 
 @mixin transitionUp {
@@ -121,12 +121,6 @@ $lab-card-perspective: 200rem;
           }
           &:nth-last-child(n + 2) {
             border-bottom: 1px solid var(--lab-color-background-mercury);
-          }
-          &:last-child {
-            &::after {
-              content: " ...more";
-              color: var(--lab-color-text-quaternary);
-            }
           }
         }
       }

@@ -90,13 +90,13 @@ On the other hand I have decided to create a facade to abstract the state comple
 
 By this way you can keep a clean API.
 
-At the begining I have created there an observable method to get the list of beers from the state management and I have modified the method in the onInit of the template, to display the items from the facade instead of from the service directly.
+At the begining I have created there an observable method to get the list of users from the state management and I have modified the method in the onInit of the template, to display the items from the facade instead of from the service directly.
 
-After that, I have consulted in the API documentation how could I configure the end I have created the observable methods to get Beers by name, and by details. 
+After that, I have consulted in the API documentation how could I configure the end I have created the observable methods to get Users by name, and by details. 
 
 ### 2.4. Go to the detail
 
-First I have added the the params id in the app routing module. Then I have created a function to go to the detail passing the id as a param and I have used the Router from Angular concatening the id to the beers from the end point. 
+First I have added the the params id in the app routing module. Then I have created a function to go to the detail passing the id as a param and I have used the Router from Angular concatening the id to the users from the end point. 
 
 Then I have shown the detail with a Angular Material Card. 
 
@@ -128,7 +128,7 @@ Finally I have created an enum in order to do these kind of units reusables.
 In this step, the query should filter the data fetched in the browser. It was not a request to the API and that's why I have filtered by the item.name introduced in the search bar.
 
 I have used the selectors to return the new state and show it to the view. 
-I have added a comprovation, asking tf the query was not empty. In that case, we display the whole beers list. If not, we return just the matches results in a reactive way with the valueChanges from Angular forms.
+I have added a comprovation, asking tf the query was not empty. In that case, we display the whole users list. If not, we return just the matches results in a reactive way with the valueChanges from Angular forms.
 
 I have created a dummy and reusable component where I have emmit an event and done the unsubscribe to aviod memory leacks. 
 >**Improvements**_: *This search is not scalabe. One possible performance improvement wold be acces to it in a dictionary mode with a Map, key : value instead of iterate the array.*

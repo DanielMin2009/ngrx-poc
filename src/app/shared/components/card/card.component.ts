@@ -16,6 +16,6 @@ export class CardComponent {
   @Input() title: string | undefined;
   @Input() pathImg: string | undefined;
   @Input() label: string | undefined;
-  @Input() name: string | undefined;
-  @Input() description: string | undefined;
+  @Input() phone: string | undefined;
+  @Input() email: string | undefined;
 }

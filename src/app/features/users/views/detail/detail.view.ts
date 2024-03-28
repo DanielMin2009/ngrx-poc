@@ -4,20 +4,20 @@ import { ActivatedRoute } from '@angular/router';
 // Shared
 import { LayoutTypeClass } from 'src/app/shared/definitions/styles';
 
-// Feature Beers
-import { BeersFacade } from '../../beers.facade';
+// Feature Users
+import { UsersFacade } from '../../users.facade';
 @Component({
   selector: 'lab-detail-view',
   templateUrl: './detail.view.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailView {
-  @HostBinding('class') className = LayoutTypeClass.BeersMainVerticallyCentered;
+  @HostBinding('class') className = LayoutTypeClass.UsersMainVerticallyCentered;
 
-  constructor(public beersFacade: BeersFacade, private route: ActivatedRoute) {}
+  constructor(public usersFacade: UsersFacade, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.beersFacade.getBeerById(id);
+    this.usersFacade.getUserById(id);
   }
 }

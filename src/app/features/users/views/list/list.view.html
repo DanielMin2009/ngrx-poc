@@ -1,6 +1,6 @@
 <lab-searchbar (search)="filter($event)"></lab-searchbar>
 <ng-container
-  *ngIf="(beersFacade.isLoading$ | async); then loading; else viewData"
+  *ngIf="(usersFacade.isLoading$ | async); then loading; else viewData"
 ></ng-container>
 
 <ng-template #viewData>
@@ -11,15 +11,14 @@
     (scrolled)="onScrollEnd()"
   >
     <ng-container
-      *ngFor="let beer of beersFacade.getBeersByName$ | async; let i = index; trackBy: getBeerById"
+      *ngFor="let user of usersFacade.getUsersByName$ | async; let i = index; trackBy: getUserById"
     >
       <lab-card
-        (click)="goToDetails(beer.id)"
-        [pathImg]="beer.image_url"
-        [title]="beer.name | slice:-14 | specialChars"
-        [name]="beer.name"
-        [label]="beer.first_brewed"
-        [description]="beer.description  | slice:-75"
+        (click)="onSendEmail(user.id)"
+        pathImg="avatar.svg"
+        [title]="user.name | slice:-14 | specialChars"
+        [phone]="user.phone"
+        [email]="user.email  | slice:-75"
       ></lab-card>
     </ng-container>
   </section>

@@ -10,8 +10,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { environment } from '../environments/environment';
-import { BeerEffects } from './features/beers/store/beer.effects';
-import { BeersReducer } from './features/beers/store/beer.reducer';
+import { UserEffects } from './features/users/store/user.effects';
+import { UsersReducer } from './features/users/store/user.reducer';
 
 // Component
 import { AppComponent } from './app.component';
@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 import { ShellModule } from './shell/shell.module';
 
 // Features
-import { BeersModule } from './features/beers/beers.module';
+import { UsersModule } from './features/users/users.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -35,7 +35,7 @@ import { BeersModule } from './features/beers/beers.module';
       logOnly: environment.production,
     }),
     StoreModule.forRoot(
-      { beers: BeersReducer },
+      { users: UsersReducer },
       {
         runtimeChecks: {
           strictStateImmutability: true,
@@ -47,11 +47,11 @@ import { BeersModule } from './features/beers/beers.module';
         },
       }
     ),
-    EffectsModule.forRoot([BeerEffects]),
+    EffectsModule.forRoot([UserEffects]),
     // Shell
     ShellModule,
     // Features
-    BeersModule,
+    UsersModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

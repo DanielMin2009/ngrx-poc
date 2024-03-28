@@ -39,4 +39,4 @@ const materialModules = [
   declarations: [DetailView, ListView, SpecialChars],
   providers: [],
 })
-export class BeersModule {}
+export class UsersModule {}
